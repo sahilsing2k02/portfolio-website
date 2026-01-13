@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sahil Singh - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    :root {
+      --light-bg: #ffffff;
+      --light-text: #333;
+      --dark-bg: #121212;
+      --dark-text: #e0e0e0;
+      --primary-color: #007bff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background 0.3s, color 0.3s;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: #f4f4f4;
+      padding: 2rem 1rem;
+      text-align: center;
+      flex-shrink: 0;
+      border-right: 2px solid #ccc; 
+    }
+
+    .sidebar img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .sidebar h1 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 0.75rem 0;
+      color: var(--light-text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .content {
+      flex-grow: 1;
+      background: var(--light-bg);
+      color: var(--light-text);
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      max-width: 900px;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .project, .skill-box {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    .dark-mode .sidebar {
+      background: #1e1e1e;
+    }
+
+    .dark-mode .sidebar a {
+      color: var(--dark-text);
+    }
+
+    .dark-mode .content {
+      background: #1a1a1a;
+      color: var(--dark-text);
+    }
+
+    .dark-mode .project, .dark-mode .skill-box {
+      background: #2c2c2c;
+    }
+
+    .dark-toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--light-text);
+      z-index: 1000;
+    }
+
+    .dark-mode .dark-toggle-btn {
+      color: var(--dark-text);
+    }
+
+    a {
+      color: var(--primary-color);
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: relative;
+      }
+
+      .content {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle-btn" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="hero.jpeg" alt="Sahil Singh Photo" />
+    <h1>Sahil Singh</h1>
+    <a href="#home">Home</a>
+    <a href="about.html">About</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <section id="home">
+      <h2>👋 Welcome!</h2>
+      <p>Hello! I’m <strong>Sahil Singh</strong>, a passionate Web Developer focused on building responsive and engaging user experiences. I love bringing creative ideas to life through code, especially with HTML, CSS, JavaScript, and React.</p>
+    </section>
+
+    <section id="skills">
+      <h2>🔧 Technical Skills</h2>
+      <div class="skill-box">
+        <ul>
+          <li><strong>Languages:</strong> HTML, CSS, JavaScript, C++, Python</li>
+          <li><strong>Frameworks & Libraries:</strong> React, Node.js, Express.js</li>
+          <li><strong>Databases:</strong> MongoDB, MySQL</li>
+          <li><strong>Tools:</strong> Git, GitHub, VS Code</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>🚀 Featured Projects</h2>
+      <div class="project">
+        <h3>Chat Bot</h3>
+        <p>A chatbot app is a software application designed to simulate human conversation and assist users through text or voice interactions.
+</p>
+        <a href="#">🔗 View Project</a>
+      </div>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>This very portfolio! Cleanly designed with HTML/CSS and JS, featuring responsive layout, section transitions, and dark mode toggle.</p>
+        <a href="#">🔗 View Project</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+</html>

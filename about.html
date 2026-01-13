@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me | Sahil Singh</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --light-bg: #f9f9f9;
+      --dark-bg: #121212;
+      --light-text: #333;
+      --dark-text: #f1f1f1;
+      --accent: #007bff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--light-bg);
+      color: var(--light-text);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #20232a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: white;
+    }
+
+    body.dark-mode .toggle-btn {
+      color: var(--dark-text);
+    }
+
+    .content {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    span.name-highlight {
+      color: var(--accent);
+    }
+
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .social-links {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 8px 14px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-links a:hover {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    body.dark-mode .social-links a {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    body.dark-mode .social-links a:hover {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px;
+      }
+
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body onload="loadTheme()">
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="toggle-btn" onclick="toggleMode()">
+      <i class="fas fa-moon" id="modeIcon"></i>
+    </button>
+  </header>
+
+  <div class="content">
+    <section id="about">
+      <div class="about-container">
+        <img src="hero.jpeg" alt="Sahil Singh" class="profile-photo" />
+        <div class="about-text">
+          <h1>I'm <span class="name-highlight">Sahil Singh</span> and Web Developer</h1>
+          <p>
+            A passionate front-end engineer, I love crafting responsive and user-friendly web experiences using HTML, CSS, JavaScript, and React. I enjoy turning ideas into clean, interactive interfaces and continuously sharpen my skills by exploring new frameworks, design patterns, and best practices.
+          </p>
+          <p>
+            Beyond the front-end, I have a strong interest in Data Structures and Algorithms, constantly challenging myself on platforms like LeetCode and Codeforces. I believe solid DSA skills not only make me a better coder but help me approach real-world problems with an analytical mindset.
+          </p>
+          <p>
+            I'm now seeking an internship where I can grow, contribute meaningfully, and collaborate with like-minded developers.
+          </p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/sahil-singh2079/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/sahilsing2k02" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://leetcode.com/u/mrsahilsingh/" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+            <a href="https://codeforces.com/profile/mrsahilsingh" target="_blank"><i class="fas fa-laptop-code"></i> Codeforces</a>
+            <a href="https://www.codechef.com/users/mrsahilsingh" target="_blank"><i class="fas fa-laptop-code"></i> CodeChef</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const icon = document.getElementById("modeIcon");
+      const isDark = body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+    }
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      const icon = document.getElementById("modeIcon");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        icon.className = "fas fa-sun";
+      } else {
+        icon.className = "fas fa-moon";
+      }
+    }
+  </script>
+</body>
+</html>

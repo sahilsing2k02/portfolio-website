@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume | Sahil Singh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-light: #f9f9f9;
+      --bg-dark: #121212;
+      --text-light: #333;
+      --text-dark: #f1f1f1;
+      --accent: #007bff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    
+    .dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    .dark-mode .sidebar {
+      background: #1e1e1e;
+    }
+
+    .dark-mode .sidebar a {
+      color: var(--dark-text);
+    }
+
+    .dark-mode .content {
+      background: #1a1a1a;
+      color: var(--dark-text);
+    }
+
+    .dark-mode .project, .dark-mode .skill-box {
+      background: #2c2c2c;
+    }
+
+    .dark-toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--light-text);
+      z-index: 1000;
+    }
+
+    .dark-mode .dark-toggle-btn {
+      color: var(--dark-text);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #20232a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .content {
+      padding: 60px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .resume-frame {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px;
+      }
+
+      .resume-frame {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+<body onload="loadTheme()">
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="toggle-btn" onclick="toggleMode()">
+      <i class="fas fa-moon" id="modeIcon"></i>
+    </button>
+  </header>
+
+  <div class="content">
+    <h1>My Resume</h1>
+    <iframe class="resume-frame" src="sahilsinghresume.pdf"></iframe>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      document.getElementById("modeIcon").className = isDark ? "fas fa-sun" : "fas fa-moon";
+    }
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      const modeIcon = document.getElementById("modeIcon");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        modeIcon.className = "fas fa-sun";
+      } else {
+        modeIcon.className = "fas fa-moon";
+      }
+    }
+  </script>
+</body>
+</html>
